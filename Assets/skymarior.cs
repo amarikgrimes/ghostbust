@@ -18,9 +18,9 @@ public class skymarior : MonoBehaviour
     void Update()
     {
         transform.Translate(Time.deltaTime * Speed * Vector3.left); // moves the background to the left by multiplying the speed by the set unity speed
-        if (transform.position.x < maxX) //if statement that tells the background to move back to minX if it reaches a number less than the max, helps to create a moving sky illusion
+        if (transform.position.x < minX) //if statement that tells the background to move back to minX if it reaches a number less than the max, helps to create a moving sky illusion
         {
-            transform.position = new Vector3(minX, 0f, 0f);
+            transform.position = new Vector3(maxX, 0f, 0f);
         }
 
     }

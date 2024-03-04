@@ -6,10 +6,12 @@ public class lupigi : MonoBehaviour
 {
     public float Speed;
     [SerializeField] GameObject pixelPrefab;
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
         Destroy(gameObject, 5f);
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -18,6 +20,7 @@ public class lupigi : MonoBehaviour
         float r = Random.Range(0, Speed);
         transform.Translate(Time.deltaTime * Speed * Vector3.left);
     }
+
     // OnCollisionEnter2D is called when this collider/rigidbody2D has begun touching another rigidbody2D/collider2D
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -25,6 +28,6 @@ public class lupigi : MonoBehaviour
         {
             Instantiate(pixelPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
-        }
+            gameManager.UpdateScore(1);        }
     }
 }

@@ -23,7 +23,7 @@ public class spriterando : MonoBehaviour
         {
             float randomY = Random.Range(MinY, MaxY);
             int r = Random.Range(0, 100);
-            Vector3 randomPosition = new Vector3(transform.position.x, randomY, transform.position.z);
+            Vector3 randomPosition = new Vector3(12f, randomY, transform.position.z);
 
             if (r < Ratio)
             {

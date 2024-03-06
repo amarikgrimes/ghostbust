@@ -6,12 +6,13 @@ public class lupigi : MonoBehaviour
 {
     public float Speed;
     [SerializeField] GameObject pixelPrefab;
-    private GameManager gameManager;
+    GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
         Destroy(gameObject, 5f);
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager = FindAnyObjectByType<GameManager>();
+
     }
 
     // Update is called once per frame
@@ -28,6 +29,7 @@ public class lupigi : MonoBehaviour
         {
             Instantiate(pixelPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
-            gameManager.UpdateScore(1);        }
+            gameManager.score += 100;
+        }
     }
 }

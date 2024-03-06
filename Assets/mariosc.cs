@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class mariosc : MonoBehaviour
 {
     [SerializeField] GameObject pixelPrefab;
     [SerializeField] float Speed;
+    GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
         Destroy(gameObject, 5f);
+        gameManager = FindAnyObjectByType<GameManager>();
     }
 
     // Update is called once per frame
@@ -25,6 +28,8 @@ public class mariosc : MonoBehaviour
         {
             Instantiate(pixelPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
+            gameManager.score -= 100;
+            
         }
     }
 }

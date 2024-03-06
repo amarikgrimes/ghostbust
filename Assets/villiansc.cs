@@ -50,6 +50,7 @@ public class villiansc : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
+            Time.timeScale = 0;
         }
     }
 }
